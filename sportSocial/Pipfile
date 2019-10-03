@@ -12,6 +12,7 @@ django-cors-headers = "*"
 heroku = "*"
 gunicorn = "*"
 django-heroku = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
