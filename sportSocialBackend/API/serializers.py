@@ -1,18 +1,18 @@
 from django.contrib.auth.models import User as UserAuth, Group as GroupAuth
-from API.models import User, Country, Group, Sport, Event, City
+from API.models import User, Country, Group, Sport, Event, City, Comments
 from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'email', 'groups', 'events', 'full_name', 'description', 'age', 'country', 'created']
+        fields = ['username', 'email', 'first_name', 'last_name', 'created_at', 'updated_at', 'description', 'age', 'country']
 
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ['name', 'description', 'country', 'users', 'created']
+        fields = ['name', 'description', 'country', 'created_at', 'updated_at', 'users']
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -42,7 +42,7 @@ class CountrySerializer(serializers.ModelSerializer):
 class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
-        fields = ['name']
+        fields = ['name', 'country']
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -54,4 +54,10 @@ class EventSerializer(serializers.ModelSerializer):
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ['name', 'description', 'country', 'created']
+        fields = ['name', 'description', 'country', 'created_at', 'updated_at', 'users']
+
+
+class CommentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group
+        fields = ['user', 'text', 'event', 'created_at', 'updated_at']

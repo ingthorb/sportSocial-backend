@@ -26,3 +26,6 @@ Using Jenkins for build
 To run locally if you have windows:
 heroku local web -f Procfile.windows
 https://sport-social.herokuapp.com/
+
+For updating live database 
+heroku run python manage.py migrate
