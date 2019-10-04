@@ -8,7 +8,16 @@ pip install pipenv
 Then use the commands
 pipenv install
 
-pipenv install django
-pipenv install djangorestframework
-Django rest framework
-Pipenv
+Run:
+pipenv shell
+
+
+## Start Server
+python manage.py runserver
+
+## Migrate
+python manage.py migrate
+
+## Heroku
+
+https://sport-social.herokuapp.com/
