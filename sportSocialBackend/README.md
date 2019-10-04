@@ -18,6 +18,8 @@ python manage.py runserver
 ## Migrate
 python manage.py migrate
 
-## Heroku
+## Jenkins
+Using Jenkins for build
 
+## Heroku
 https://sport-social.herokuapp.com/
