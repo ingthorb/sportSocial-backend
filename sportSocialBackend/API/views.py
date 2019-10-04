@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from API.models import Sport
-from API.serializers import UserSerializer, GroupSerializer, SportSerializer
+from API.models import Sport, Event
+from API.serializers import UserSerializer, GroupSerializer, SportSerializer, EventSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -26,3 +26,11 @@ class SportViewSet(viewsets.ModelViewSet):
     """
     queryset = Sport.objects.all()
     serializer_class = SportSerializer
+
+
+class EventViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer

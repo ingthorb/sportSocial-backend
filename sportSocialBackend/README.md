@@ -1,6 +1,6 @@
 ## Sports Meetup
 
-Information how to install required dependencies to run this project
+Information how to install required dependencies to run this project, this was done through Windows.
 
 Start by installing pipenv through pip
 pip install pipenv
@@ -22,4 +22,7 @@ python manage.py migrate
 Using Jenkins for build
 
 ## Heroku
+
+To run locally if you have windows:
+heroku local web -f Procfile.windows
 https://sport-social.herokuapp.com/

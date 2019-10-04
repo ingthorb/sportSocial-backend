@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User as UserAuth, Group as GroupAuth
-from API.models import User, Country, Group, Sport, Event
+from API.models import User, Country, Group, Sport, Event, City
 from rest_framework import serializers
 
 
@@ -7,6 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'email', 'groups', 'events', 'full_name', 'description', 'age', 'country', 'created']
+
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
@@ -38,10 +39,16 @@ class CountrySerializer(serializers.ModelSerializer):
         fields = ['name']
 
 
+class CitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = City
+        fields = ['name']
+
+
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['name', 'users', 'created']
+        fields = ['name', 'users', 'description', 'country', 'city', 'created_at', 'updated_at', 'sport', 'datetime', 'difficulty']
 
 
 class GroupSerializer(serializers.ModelSerializer):

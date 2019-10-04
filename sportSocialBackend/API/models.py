@@ -1,50 +1,97 @@
 from django.db import models
 
-# Create your models here.
 
-
-class User(models.Model):
-    username = models.CharField(max_length=100, unique=True)
-    title = models.CharField(max_length=100, blank=True, default='')
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    description = models.TextField()
-    created = models.DateTimeField()
+class Country(models.Model):
+    name = models.CharField(max_length=50)
 
     class Meta:
-        app_label = 'backend'
-        ordering = ['created']
+        verbose_name_plural = 'Countries'
+
+    def __str__(self):
+        return self.name
+
+
+class City(models.Model):
+    name = models.CharField(max_length=50, default="")
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Cities'
 
 
 class Sport(models.Model):
     name = models.CharField(max_length=50, unique=True)
     description = models.TextField()
 
-    class Meta:
-        app_label = 'backend'
-
-
-class Country(models.Model):
-    name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.name
 
     class Meta:
-        app_label = 'backend'
+        verbose_name_plural = 'Sports'
+
+
+class User(models.Model):
+    username = models.CharField(max_length=100, unique=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        ordering = ['created_at']
+        verbose_name_plural = 'Users'
 
 
 class Event(models.Model):
     name = models.CharField(max_length=50)
-    users = models.ForeignKey(User, on_delete=models.PROTECT)
-    created = models.DateTimeField()
+    users = models.ManyToManyField('User')
+    description = models.TextField()
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    sport = models.ForeignKey(Sport, on_delete=models.CASCADE)
+    datetime = models.DateTimeField()
+    difficulty = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
-        app_label = 'backend'
+        verbose_name_plural = 'Events'
+
+
+class Comments(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.event
+
+    class Meta:
+        ordering = ['created_at']
 
 
 class Group(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
-    country = models.ForeignKey(Country, on_delete=models.PROTECT)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
     created = models.DateTimeField()
+    users = models.ManyToManyField('User')
+
+    def __str__(self):
+        return self.name
 
     class Meta:
-        app_label = 'backend'
+        verbose_name_plural = 'Groups'
