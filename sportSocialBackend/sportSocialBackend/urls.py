@@ -15,20 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
+from rest_framework_swagger.views import get_swagger_view
 from API import views
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UsersViewSet)
-router.register(r'groups', views.GroupsViewSet)
-router.register(r'events', views.EventViewSet)
-router.register(r'comments', views.CommentsViewSet)
-router.register(r'country', views.CountryViewSet)
-router.register(r'city', views.CityViewSet)
-
+schema_view = get_swagger_view(title='Sport Social API')
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('', schema_view),
     path('sports/', views.sport_list),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('events/', views.event_list),
+    path('comments/', views.comment_list),
+    path('events/<int:id>', views.event_detail),
+    path('comments/<int:id>', views.comment_detail),
+    path('sports/<int:id>', views.sport_detail),
 ]

@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 # Application definition
@@ -44,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'API.apps.ApiConfig'
+    'API.apps.ApiConfig',
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [

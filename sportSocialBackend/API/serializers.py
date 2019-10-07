@@ -3,7 +3,7 @@ from API.models import User, Country, Group, Sport, Event, City, Comments
 from rest_framework import serializers
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UsersSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'created_at', 'updated_at', 'description', 'age', 'country']
@@ -15,7 +15,7 @@ class GroupSerializer(serializers.ModelSerializer):
         fields = ['name', 'description', 'country', 'created_at', 'updated_at', 'users']
 
 
-class UsersSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserAuth
         fields = ['url', 'username', 'email', 'groups']
@@ -31,6 +31,12 @@ class SportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sport
         fields = ['name', 'description']
+
+
+class ListSportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sport
+        fields = ['name',]
 
 
 class CountrySerializer(serializers.ModelSerializer):
@@ -51,6 +57,12 @@ class EventSerializer(serializers.ModelSerializer):
         fields = ['name', 'users', 'description', 'country', 'city', 'created_at', 'updated_at', 'sport', 'datetime', 'difficulty']
 
 
+class ListEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = ['name', 'description', 'sport']
+
+
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
@@ -61,3 +73,9 @@ class CommentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
         fields = ['user', 'text', 'event', 'created_at', 'updated_at']
+
+
+class ListCommentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group
+        fields = ['user', 'text', 'event']
