@@ -15,13 +15,13 @@ class GroupSerializer(serializers.ModelSerializer):
         fields = ['name', 'description', 'country', 'created_at', 'updated_at', 'users']
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UsersSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserAuth
         fields = ['url', 'username', 'email', 'groups']
 
 
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
+class GroupsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = GroupAuth
         fields = ['url', 'name']

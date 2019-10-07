@@ -19,13 +19,16 @@ from rest_framework import routers
 from API import views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-router.register(r'sports', views.SportViewSet)
+router.register(r'users', views.UsersViewSet)
+router.register(r'groups', views.GroupsViewSet)
 router.register(r'events', views.EventViewSet)
+router.register(r'comments', views.CommentsViewSet)
+router.register(r'country', views.CountryViewSet)
+router.register(r'city', views.CityViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('sports/', views.sport_list),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
