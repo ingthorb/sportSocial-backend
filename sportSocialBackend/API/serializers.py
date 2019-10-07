@@ -33,12 +33,6 @@ class SportSerializer(serializers.ModelSerializer):
         fields = ['name', 'description']
 
 
-class ListSportSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Sport
-        fields = ['name',]
-
-
 class CountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Country
@@ -57,25 +51,7 @@ class EventSerializer(serializers.ModelSerializer):
         fields = ['name', 'users', 'description', 'country', 'city', 'created_at', 'updated_at', 'sport', 'datetime', 'difficulty']
 
 
-class ListEventSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Event
-        fields = ['name', 'description', 'sport']
-
-
-class GroupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Group
-        fields = ['name', 'description', 'country', 'created_at', 'updated_at', 'users']
-
-
 class CommentsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Group
+        model = Comments
         fields = ['user', 'text', 'event', 'created_at', 'updated_at']
-
-
-class ListCommentsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Group
-        fields = ['user', 'text', 'event']

@@ -1,198 +1,199 @@
-from rest_framework import viewsets
 from API.models import Sport, Event, Comments, Group as Groups, User as Users, City, Country
-from API.serializers import ListSportSerializer, ListEventSerializer, ListCommentsSerializer, SportSerializer, EventSerializer, CommentsSerializer, UsersSerializer, GroupsSerializer, CitySerializer, CountrySerializer
-from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from API.serializers import SportSerializer, EventSerializer, CommentsSerializer, UsersSerializer, GroupSerializer, CitySerializer, CountrySerializer
+from rest_framework import generics
 
 
-@api_view(['GET', 'POST'])
-def sport_list(request):
+class SportList(generics.ListCreateAPIView):
     """
-    :param request:
-    :return: List of sports available or created
+        ---
+        get:
+            Get list of sports
+        post:
+            Create a new sport
     """
-    if request.method == 'GET':
-        sports = Sport.objects.all()
-        data = ListSportSerializer(sports, many=True).data
-        return Response(data)
-
-    elif request.method == 'POST':
-        serializer = SportSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    queryset = Sport.objects.all()
+    serializer_class = SportSerializer
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
-def sport_detail(request, id):
+class SportDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Detailed view of sports
-    :parameter id: Id of the sport
-    :parameter request:
-    :returns: Details of specific sport, edit or delete
+        ---
+        get:
+            Get detailed sport
+        put:
+            Edit a specific sport
+        patch:
+            Patch a specific sport
+        delete:
+            Delete a specific sport
     """
-
-    try:
-        sport = Sport.objects.get(id=id)
-    except Sport.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    """ Get the detailed sport"""
-    if request.method == 'GET':
-        data = SportSerializer(sport).data
-        return Response(data)
-
-    elif request.method == 'PUT':
-        serializer = SportSerializer(sport)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        sport.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    queryset = Sport.objects.all()
+    serializer_class = SportSerializer
 
 
-@api_view(['GET', 'POST'])
-def event_list(request):
+class EventList(generics.ListCreateAPIView):
     """
-    Get event list or post a new one
-    :param request:
-    :return: List of events or create
+        ---
+        get:
+          Get list of events
+        post:
+          Create a new event
     """
-    if request.method == 'GET':
-        events = Event.objects.all()
-        serializer = ListEventSerializer(events, many=True)
-        return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = EventSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
-def event_detail(request, id):
+class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Detailed view of event
-    :parameter id: Id of the event
-    :parameter request:
-    :returns: Details of specific event, edit or delete
+        ---
+        get:
+            Get detailed event
+        put:
+            Edit a specific event
+        patch:
+            Patch a specific event
+        delete:
+            Delete a specific event
     """
-
-    try:
-        event = Event.objects.get(id=id)
-    except event.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    """ Get the detailed sport"""
-    if request.method == 'GET':
-        data = EventSerializer(event).data
-        return Response(data)
-
-    elif request.method == 'PUT':
-        serializer = EventSerializer(event)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        event.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
 
 
-@api_view(['GET', 'POST'])
-def comment_list(request):
+class CommentList(generics.ListCreateAPIView):
     """
-    Get comments list or post a new one
-    :param request:
-    :return: List of comments or create
-    """
-    if request.method == 'GET':
-        comments = Comments.objects.all()
-        serializer = ListCommentsSerializer(comments, many=True)
-        return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = CommentsSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['GET', 'PUT', 'DELETE'])
-def comment_detail(request, id):
-    """
-    Detailed view of comment
-    :parameter id: Id of the comment
-    :parameter request:
-    :returns: Details of specific comment, edit or delete
-    """
-
-    try:
-        comments = Comments.objects.get(id=id)
-    except comments.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    """ Get the detailed sport"""
-    if request.method == 'GET':
-        data = CommentsSerializer(comments).data
-        return Response(data)
-
-    elif request.method == 'PUT':
-        serializer = CommentsSerializer(comments)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        comments.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-class CommentsViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows comments to be viewed or edited.
+        ---
+        get:
+          Get list of comments
+        post:
+          Create a new comment
     """
     queryset = Comments.objects.all()
     serializer_class = CommentsSerializer
 
 
-class CountryViewSet(viewsets.ModelViewSet):
+class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    API endpoint that allows countries to be viewed or edited.
+        ---
+        get:
+            Get detailed comment
+        put:
+            Edit a specific comment
+        patch:
+            Patch a specific comment
+        delete:
+            Delete a specific comment
+    """
+    queryset = Comments.objects.all()
+    serializer_class = CommentsSerializer
+
+
+class CountryList(generics.ListCreateAPIView):
+    """
+        ---
+        get:
+          Get list of countries
+        post:
+          Create a new country
     """
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
 
 
-class CityViewSet(viewsets.ModelViewSet):
+class CountryDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    API endpoint that allows cities to be viewed or edited.
+        ---
+        get:
+            Get detailed country
+        put:
+            Edit a specific country
+        patch:
+            Patch a specific country
+        delete:
+            Delete a specific country
+    """
+    queryset = Country.objects.all()
+    serializer_class = CountrySerializer
+
+
+class CityList(generics.ListCreateAPIView):
+    """
+        ---
+        get:
+          Get list of cities
+        post:
+          Create a new city
     """
     queryset = City.objects.all()
     serializer_class = CitySerializer
 
 
-class UsersViewSet(viewsets.ModelViewSet):
+class CityDetails(generics.RetrieveUpdateDestroyAPIView):
     """
-    API endpoint that allows users to be viewed or edited.
+        ---
+        get:
+            Get detailed city
+        put:
+            Edit a specific city
+        patch:
+            Patch a specific city
+        delete:
+            Delete a specific city
+    """
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+
+
+class UserList(generics.ListCreateAPIView):
+    """
+        ---
+        get:
+          Get list of users
+        post:
+          Create a new user
     """
     queryset = Users.objects.all()
     serializer_class = UsersSerializer
 
 
-class GroupsViewSet(viewsets.ModelViewSet):
+class UsersDetails(generics.RetrieveUpdateDestroyAPIView):
     """
-    API endpoint that allows users to be viewed or edited.
+        ---
+        get:
+            Get detailed user
+        put:
+            Edit a specific user
+        patch:
+            Patch a specific user
+        delete:
+            Delete a specific user
+    """
+    queryset = Users.objects.all()
+    serializer_class = UsersSerializer
+
+
+class GroupList(generics.ListCreateAPIView):
+    """
+        ---
+        get:
+          Get list of groups
+        post:
+          Create a new group
     """
     queryset = Groups.objects.all()
-    serializer_class = GroupsSerializer
+    serializer_class = GroupSerializer
+
+
+class GroupsDetails(generics.RetrieveUpdateDestroyAPIView):
+    """
+        ---
+        get:
+            Get detailed group
+        put:
+            Edit a specific group
+        patch:
+            Patch a specific group
+        delete:
+            Delete a specific group
+    """
+    queryset = Groups.objects.all()
+    serializer_class = GroupSerializer

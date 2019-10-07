@@ -22,10 +22,16 @@ schema_view = get_swagger_view(title='Sport Social API')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', schema_view),
-    path('sports/', views.sport_list),
-    path('events/', views.event_list),
-    path('comments/', views.comment_list),
-    path('events/<int:id>', views.event_detail),
-    path('comments/<int:id>', views.comment_detail),
-    path('sports/<int:id>', views.sport_detail),
+    path('sports/', views.SportList.as_view()),
+    path('events/', views.EventList.as_view()),
+    path('comments/', views.CommentList.as_view()),
+    path('groups/', views.GroupList.as_view()),
+    path('cities/', views.CityList.as_view()),
+    path('countries/', views.CountryList.as_view()),
+    path('events/<int:id>', views.EventDetail.as_view()),
+    path('comments/<int:id>', views.CommentDetail.as_view()),
+    path('sports/<int:id>', views.SportDetail.as_view()),
+    path('groups/<int:id>', views.GroupsDetails.as_view()),
+    path('cities/<int:id>', views.CityDetails.as_view()),
+    path('countries/<int:id>', views.CountryDetail.as_view())
 ]
