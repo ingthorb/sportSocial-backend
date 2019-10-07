@@ -14,14 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from django.shortcuts import redirect
 from rest_framework_swagger.views import get_swagger_view
 from API import views
 
 schema_view = get_swagger_view(title='Sport Social API')
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', schema_view),
+    path('', lambda request: redirect('swagger/', permanent=False)),
+    path('swagger/', schema_view),
     path('sports/', views.SportList.as_view()),
     path('events/', views.EventList.as_view()),
     path('comments/', views.CommentList.as_view()),
