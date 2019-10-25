@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Country(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
 
     class Meta:
         verbose_name_plural = 'Countries'
@@ -12,7 +12,7 @@ class Country(models.Model):
 
 
 class City(models.Model):
-    name = models.CharField(max_length=50, default="")
+    name = models.CharField(max_length=50, unique=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -24,7 +24,7 @@ class City(models.Model):
 
 class Sport(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -62,6 +62,8 @@ class Event(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     sport = models.ForeignKey(Sport, on_delete=models.CASCADE)
     datetime = models.DateTimeField()
+    long = models.DecimalField(max_digits=12, decimal_places=7)
+    lat = models.DecimalField(max_digits=12, decimal_places=7)
     difficulty = models.CharField(max_length=100)
 
     def __str__(self):

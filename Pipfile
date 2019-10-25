@@ -13,7 +13,6 @@ heroku = "*"
 gunicorn = "*"
 django-heroku = "*"
 whitenoise = "*"
-psycopg2 = "*"
 django-rest-swagger = "*"
 
 [requires]

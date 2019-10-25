@@ -3,7 +3,7 @@ from API.models import User, Sport, Group, Country, Event, City
 
 
 class UserAdmin(admin.ModelAdmin):
-    fields = ['username', 'first_name', 'last_name', 'description', 'created', 'country']
+    fields = ['username', 'first_name', 'last_name', 'description', 'country', 'email', 'age']
 
 
 admin.site.register(User, UserAdmin)

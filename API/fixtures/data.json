@@ -1,0 +1,848 @@
+[
+{
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$daKcY5mQ0lQw$7wxyYK8D+DtMoRIrs/xljnytEgQyEePcc4xcwucrHb0=",
+        "last_login": "2019-10-25T12:16:21.436Z",
+        "is_superuser": true,
+        "username": "ingthor",
+        "first_name": "",
+        "last_name": "",
+        "email": "ingthorb@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-10-25T12:16:10.159Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "pehbeqesdjff34f2f7tobmzhzne1a16k",
+    "fields": {
+        "session_data": "MWYzMDkyY2Q0MGRiOWRlZWU3NGM2YjJhNWY5NTY2MjZiMzhkOWIyNzp7Il9hdXRoX3VzZXJfaWQiOiI4IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxZTI1Y2VkZTdlYzk4ZTM0ZjY0YTM0MzFhZTUwZTJjNDFiMDA5MTcyIn0=",
+        "expire_date": "2019-11-08T12:16:21.453Z"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 7,
+    "fields": {
+        "name": "Switzerland"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 8,
+    "fields": {
+        "name": "Germany"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 9,
+    "fields": {
+        "name": "Portugal"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 10,
+    "fields": {
+        "name": "Iceland"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 11,
+    "fields": {
+        "name": "Netherlands"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 12,
+    "fields": {
+        "name": "Belgium"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 13,
+    "fields": {
+        "name": "Norway"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 14,
+    "fields": {
+        "name": "Sweden"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 15,
+    "fields": {
+        "name": "Finland"
+    }
+},
+{
+    "model": "API.country",
+    "pk": 16,
+    "fields": {
+        "name": "Denmark"
+    }
+},
+{
+    "model": "API.city",
+    "pk": 2,
+    "fields": {
+        "name": "Reykjavik",
+        "country": 10
+    }
+},
+{
+    "model": "API.city",
+    "pk": 3,
+    "fields": {
+        "name": "Selfoss",
+        "country": 10
+    }
+},
+{
+    "model": "API.city",
+    "pk": 4,
+    "fields": {
+        "name": "Akureyri",
+        "country": 10
+    }
+},
+{
+    "model": "API.city",
+    "pk": 5,
+    "fields": {
+        "name": "Zurich",
+        "country": 7
+    }
+},
+{
+    "model": "API.city",
+    "pk": 6,
+    "fields": {
+        "name": "Bern",
+        "country": 7
+    }
+},
+{
+    "model": "API.city",
+    "pk": 7,
+    "fields": {
+        "name": "Luzern",
+        "country": 7
+    }
+},
+{
+    "model": "API.city",
+    "pk": 8,
+    "fields": {
+        "name": "Geneva",
+        "country": 7
+    }
+},
+{
+    "model": "API.city",
+    "pk": 9,
+    "fields": {
+        "name": "Brussel",
+        "country": 12
+    }
+},
+{
+    "model": "API.city",
+    "pk": 10,
+    "fields": {
+        "name": "Amsterdam",
+        "country": 11
+    }
+},
+{
+    "model": "API.city",
+    "pk": 11,
+    "fields": {
+        "name": "Oslo",
+        "country": 13
+    }
+},
+{
+    "model": "API.city",
+    "pk": 12,
+    "fields": {
+        "name": "Stockholm",
+        "country": 14
+    }
+},
+{
+    "model": "API.city",
+    "pk": 13,
+    "fields": {
+        "name": "Copenhagen",
+        "country": 16
+    }
+},
+{
+    "model": "API.city",
+    "pk": 14,
+    "fields": {
+        "name": "Helsinki",
+        "country": 15
+    }
+},
+{
+    "model": "API.sport",
+    "pk": 1,
+    "fields": {
+        "name": "Football",
+        "description": ""
+    }
+},
+{
+    "model": "API.sport",
+    "pk": 2,
+    "fields": {
+        "name": "Volleyball",
+        "description": ""
+    }
+},
+{
+    "model": "API.sport",
+    "pk": 3,
+    "fields": {
+        "name": "Boxing",
+        "description": ""
+    }
+},
+{
+    "model": "API.sport",
+    "pk": 4,
+    "fields": {
+        "name": "Tennis",
+        "description": ""
+    }
+},
+{
+    "model": "API.sport",
+    "pk": 5,
+    "fields": {
+        "name": "Badmington",
+        "description": ""
+    }
+},
+{
+    "model": "API.user",
+    "pk": 1,
+    "fields": {
+        "username": "ingthor",
+        "first_name": "Ingthor",
+        "last_name": "Arnason",
+        "description": "Hello I love football",
+        "created_at": "2019-10-25T12:18:58.619Z",
+        "updated_at": "2019-10-25T12:18:58.619Z",
+        "country": 10,
+        "email": "sfds@temp.is",
+        "age": 25
+    }
+},
+{
+    "model": "API.user",
+    "pk": 2,
+    "fields": {
+        "username": "luis",
+        "first_name": "Luis",
+        "last_name": "Garcia",
+        "description": "Hola",
+        "created_at": "2019-10-25T12:19:21.990Z",
+        "updated_at": "2019-10-25T12:19:21.990Z",
+        "country": 9,
+        "email": "luis@temp.is",
+        "age": 34
+    }
+},
+{
+    "model": "API.user",
+    "pk": 3,
+    "fields": {
+        "username": "karl",
+        "first_name": "Karl",
+        "last_name": "Karlsson",
+        "description": "Hello",
+        "created_at": "2019-10-25T12:19:58.240Z",
+        "updated_at": "2019-10-25T12:19:58.240Z",
+        "country": 13,
+        "email": "karl@karl.com",
+        "age": 24
+    }
+},
+{
+    "model": "API.event",
+    "pk": 1,
+    "fields": {
+        "name": "Football in Bern",
+        "description": "We are meeting up for a game of football in Bern this coming Friday, everybody welcome.",
+        "country": 7,
+        "city": 6,
+        "created_at": "2019-10-25T12:21:07.486Z",
+        "updated_at": "2019-10-25T12:21:07.486Z",
+        "sport": 1,
+        "datetime": "2019-11-01T18:00:00Z",
+        "long": "46.9480000",
+        "lat": "7.4474000",
+        "difficulty": "Easy",
+        "users": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2019-10-25T12:16:31.957Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "country"
+        ],
+        "object_id": "9",
+        "object_repr": "Portugal",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2019-10-25T12:16:33.713Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "country"
+        ],
+        "object_id": "10",
+        "object_repr": "Iceland",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2019-10-25T12:16:36.022Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "country"
+        ],
+        "object_id": "11",
+        "object_repr": "Netherlands",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2019-10-25T12:16:38.026Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "country"
+        ],
+        "object_id": "12",
+        "object_repr": "Belgium",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2019-10-25T12:16:41.937Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "country"
+        ],
+        "object_id": "13",
+        "object_repr": "Norway",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2019-10-25T12:16:44.102Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "country"
+        ],
+        "object_id": "14",
+        "object_repr": "Sweden",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2019-10-25T12:16:46.321Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "country"
+        ],
+        "object_id": "15",
+        "object_repr": "Finland",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2019-10-25T12:16:48.981Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "country"
+        ],
+        "object_id": "16",
+        "object_repr": "Denmark",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2019-10-25T12:16:59.499Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "2",
+        "object_repr": "Reykjavik",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2019-10-25T12:17:04.752Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "3",
+        "object_repr": "Selfoss",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2019-10-25T12:17:09.541Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "4",
+        "object_repr": "Akureyri",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2019-10-25T12:17:20.399Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "5",
+        "object_repr": "Zurich",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2019-10-25T12:17:25.152Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "6",
+        "object_repr": "Bern",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2019-10-25T12:17:29.871Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "7",
+        "object_repr": "Luzern",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2019-10-25T12:17:35.110Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "8",
+        "object_repr": "Geneva",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2019-10-25T12:17:46.497Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "9",
+        "object_repr": "Brussel",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2019-10-25T12:17:50.961Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "10",
+        "object_repr": "Amsterdam",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2019-10-25T12:17:56.295Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "11",
+        "object_repr": "Oslo",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2019-10-25T12:18:03.289Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "12",
+        "object_repr": "Stockholm",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2019-10-25T12:18:09.048Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "13",
+        "object_repr": "Copenhagen",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2019-10-25T12:18:16.136Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "city"
+        ],
+        "object_id": "14",
+        "object_repr": "Helsinki",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2019-10-25T12:18:22.608Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "sport"
+        ],
+        "object_id": "1",
+        "object_repr": "Football",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 92,
+    "fields": {
+        "action_time": "2019-10-25T12:18:25.650Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "sport"
+        ],
+        "object_id": "2",
+        "object_repr": "Volleyball",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 93,
+    "fields": {
+        "action_time": "2019-10-25T12:18:27.502Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "sport"
+        ],
+        "object_id": "3",
+        "object_repr": "Boxing",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 94,
+    "fields": {
+        "action_time": "2019-10-25T12:18:29.069Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "sport"
+        ],
+        "object_id": "4",
+        "object_repr": "Tennis",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 95,
+    "fields": {
+        "action_time": "2019-10-25T12:18:31.182Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "sport"
+        ],
+        "object_id": "5",
+        "object_repr": "Badmington",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 96,
+    "fields": {
+        "action_time": "2019-10-25T12:18:58.620Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "user"
+        ],
+        "object_id": "1",
+        "object_repr": "ingthor",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 97,
+    "fields": {
+        "action_time": "2019-10-25T12:19:21.991Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "user"
+        ],
+        "object_id": "2",
+        "object_repr": "luis",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 98,
+    "fields": {
+        "action_time": "2019-10-25T12:19:58.241Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "user"
+        ],
+        "object_id": "3",
+        "object_repr": "karl",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 99,
+    "fields": {
+        "action_time": "2019-10-25T12:21:07.489Z",
+        "user": [
+            "ingthor"
+        ],
+        "content_type": [
+            "API",
+            "event"
+        ],
+        "object_id": "1",
+        "object_repr": "Football in Bern",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}
+]
