@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Country(models.Model):
     name = models.CharField(max_length=50, unique=True)
 
@@ -8,6 +7,9 @@ class Country(models.Model):
         verbose_name_plural = 'Countries'
 
     def __str__(self):
+        return self.name
+
+    def __unicode__(self):
         return self.name
 
 
@@ -21,6 +23,9 @@ class City(models.Model):
     class Meta:
         verbose_name_plural = 'Cities'
 
+    def __unicode__(self):
+        return self.name
+
 
 class Sport(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -31,6 +36,9 @@ class Sport(models.Model):
 
     class Meta:
         verbose_name_plural = 'Sports'
+
+    def __unicode__(self):
+        return self.name
 
 
 class User(models.Model):
@@ -50,6 +58,9 @@ class User(models.Model):
     class Meta:
         ordering = ['created_at']
         verbose_name_plural = 'Users'
+
+    def __unicode__(self):
+        return self.username
 
 
 class Event(models.Model):
@@ -72,6 +83,9 @@ class Event(models.Model):
     class Meta:
         verbose_name_plural = 'Events'
 
+    def __unicode__(self):
+        return self.name
+
 
 class Comments(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -86,6 +100,9 @@ class Comments(models.Model):
     class Meta:
         ordering = ['created_at']
 
+    def __unicode__(self):
+        return self.text
+
 
 class Group(models.Model):
     name = models.CharField(max_length=50)
@@ -96,6 +113,9 @@ class Group(models.Model):
     users = models.ManyToManyField('User')
 
     def __str__(self):
+        return self.name
+
+    def __unicode__(self):
         return self.name
 
     class Meta:

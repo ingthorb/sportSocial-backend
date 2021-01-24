@@ -35,5 +35,6 @@ urlpatterns = [
     path('sports/<int:id>', views.SportDetail.as_view()),
     path('groups/<int:id>', views.GroupsDetails.as_view()),
     path('cities/<int:id>', views.CityDetails.as_view()),
-    path('countries/<int:id>', views.CountryDetail.as_view())
+    path('countries/<int:id>', views.CountryDetail.as_view()),
+    path('users/', views.UserList.as_view())
 ]
