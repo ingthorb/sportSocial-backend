@@ -13,8 +13,9 @@ heroku = "*"
 gunicorn = "*"
 django-heroku = "*"
 whitenoise = "*"
-django-rest-swagger = "*"
 psycopg2-binary = "*"
+psycopg2 = "*"
+drf-spectacular = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.7.7"

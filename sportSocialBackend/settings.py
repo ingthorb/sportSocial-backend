@@ -34,11 +34,13 @@ CORS_ORIGIN_WHITELIST = [
 
 ALLOWED_HOSTS = []
 
+FIXTURE_DIRS = ["./API/fixtures/"]
+
 # Application definition
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
 }
 
 # Application definition
@@ -52,7 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'API.apps.ApiConfig',
-    'rest_framework_swagger',
+    'drf_spectacular',
     'corsheaders'
 ]
 
@@ -136,6 +138,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+VENV_PATH = os.path.dirname(BASE_DIR)
+STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')
 
 # Activate Django-Heroku
 django_heroku.settings(locals())

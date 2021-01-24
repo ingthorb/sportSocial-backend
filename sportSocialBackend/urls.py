@@ -16,14 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.shortcuts import redirect
-from rest_framework_swagger.views import get_swagger_view
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from API import views
 
-schema_view = get_swagger_view(title='Sport Social API')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lambda request: redirect('swagger/', permanent=False)),
-    path('swagger/', schema_view),
+    path('schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('swagger-ui/', SpectacularSwaggerView.as_view(), name='swagger-ui'),
     path('sports/', views.SportList.as_view()),
     path('events/', views.EventList.as_view()),
     path('comments/', views.CommentList.as_view()),

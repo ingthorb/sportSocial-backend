@@ -1,23 +1,5 @@
 [
-{
-    "model": "auth.user",
-    "pk": 8,
-    "fields": {
-        "password": "pbkdf2_sha256$150000$daKcY5mQ0lQw$7wxyYK8D+DtMoRIrs/xljnytEgQyEePcc4xcwucrHb0=",
-        "last_login": "2019-10-25T12:16:21.436Z",
-        "is_superuser": true,
-        "username": "ingthor",
-        "first_name": "",
-        "last_name": "",
-        "email": "ingthorb@gmail.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2019-10-25T12:16:10.159Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
+    {
     "model": "sessions.session",
     "pk": "pehbeqesdjff34f2f7tobmzhzne1a16k",
     "fields": {
