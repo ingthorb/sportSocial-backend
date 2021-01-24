@@ -47,7 +47,7 @@ For some initial data you can run setup_database.sh
 Using Jenkins for build
 
 ## Heroku
-
+Building and deployed with Heroku,
 https://sport-social.herokuapp.com/
 
 For updating live database 
