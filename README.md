@@ -1,5 +1,8 @@
 ## Sports Meetup
 
+### Heroku build
+[![Heroku CI Status](https://heroku-ci-badge-app.herokuapp.com/last.svg)](https://dashboard.heroku.com/pipelines/b2b69ac6-0860-413d-af8f-efdf96c680ee/tests)
+
 Information how to install required dependencies to run this project, this was done through Mac.
 
 First thing you need is pip for this project.
