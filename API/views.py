@@ -1,5 +1,5 @@
 from API.models import Sport, Event, Comments, Group as Groups, User as Users, City, Country
-from API.serializers import SportSerializer, EventSerializer, CommentsSerializer, UsersSerializer, GroupSerializer, GroupsSerializer, CitySerializer, CountrySerializer
+from API.serializers import SportSerializer, EventSerializer, CommentsSerializer, UsersSerializer, GroupSerializer,GroupsSerializer, CitySerializer, CountrySerializer
 from rest_framework import generics
 import logging
 

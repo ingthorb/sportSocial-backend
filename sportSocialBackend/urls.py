@@ -33,7 +33,6 @@ urlpatterns = [
     path('events/<int:pk>', views.EventDetail.as_view()),
     path('comments/<int:pk>', views.CommentDetail.as_view()),
     path('sports/<int:id>', views.SportDetail.as_view()),
-    path('groups/<int:pk>', views.GroupsDetails.as_view()),
     path('cities/<int:pk>', views.CityDetails.as_view()),
     path('countries/<int:pk>', views.CountryDetail.as_view()),
     path('users/', views.UserList.as_view())

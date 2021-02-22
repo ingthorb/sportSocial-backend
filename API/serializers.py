@@ -24,9 +24,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class GroupsSerializer(serializers.ModelSerializer):
     country_name = serializers.CharField(source='country.name')
-# Add users
     class Meta:
-        model = GroupAuth
+        model = Group
         fields = ['name', 'country_name','description']
 
 

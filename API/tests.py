@@ -1,12 +1,11 @@
-from django.test import TestCase
-from .models import User, Country
-# Create your tests here.
+from rest_framework.test import APITestCase
+from API.models import User, Country
+from API.serializers import UserSerializer
 
-
-class UserModelTests(TestCase):
+class UserModelTests(APITestCase):
     def setUp(self):
-        country = Country.objects.create(name="test")
-        User.objects.create(username='ingthor', country=country, age=10)
+        self.country = Country.objects.create(name='Switzerland')
+        User.objects.create(username='ingthor', age=10, country=self.country)
 
     def test_created_user(self):
         user = User.objects.get(username='ingthor')
