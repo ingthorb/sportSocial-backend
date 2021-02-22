@@ -21,7 +21,7 @@ from API import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lambda request: redirect('swagger/', permanent=False)),
+    path('', lambda request: redirect('swagger-ui/', permanent=False)),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('swagger-ui/', SpectacularSwaggerView.as_view(), name='swagger-ui'),
     path('sports/', views.SportList.as_view()),
@@ -30,11 +30,11 @@ urlpatterns = [
     path('groups/', views.GroupList.as_view()),
     path('cities/', views.CityList.as_view()),
     path('countries/', views.CountryList.as_view()),
-    path('events/<int:id>', views.EventDetail.as_view()),
-    path('comments/<int:id>', views.CommentDetail.as_view()),
+    path('events/<int:pk>', views.EventDetail.as_view()),
+    path('comments/<int:pk>', views.CommentDetail.as_view()),
     path('sports/<int:id>', views.SportDetail.as_view()),
-    path('groups/<int:id>', views.GroupsDetails.as_view()),
-    path('cities/<int:id>', views.CityDetails.as_view()),
-    path('countries/<int:id>', views.CountryDetail.as_view()),
+    path('groups/<int:pk>', views.GroupsDetails.as_view()),
+    path('cities/<int:pk>', views.CityDetails.as_view()),
+    path('countries/<int:pk>', views.CountryDetail.as_view()),
     path('users/', views.UserList.as_view())
 ]

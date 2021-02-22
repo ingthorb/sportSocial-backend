@@ -1,7 +1,9 @@
 from API.models import Sport, Event, Comments, Group as Groups, User as Users, City, Country
-from API.serializers import SportSerializer, EventSerializer, CommentsSerializer, UsersSerializer, GroupSerializer, CitySerializer, CountrySerializer
+from API.serializers import SportSerializer, EventSerializer, CommentsSerializer, UsersSerializer, GroupSerializer, GroupsSerializer, CitySerializer, CountrySerializer
 from rest_framework import generics
+import logging
 
+logger = logging.getLogger(__name__)
 
 class SportList(generics.ListCreateAPIView):
     """
@@ -180,10 +182,11 @@ class GroupList(generics.ListCreateAPIView):
           Create a new group
     """
     queryset = Groups.objects.all()
-    serializer_class = GroupSerializer
+    serializer_class = GroupsSerializer
 
 
 class GroupsDetails(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = GroupSerializer
     """
         ---
         get:
@@ -195,5 +198,14 @@ class GroupsDetails(generics.RetrieveUpdateDestroyAPIView):
         delete:
             Delete a specific group
     """
-    queryset = Groups.objects.all()
-    serializer_class = GroupSerializer
+    def get_queryset(self):
+            """
+            This view should return a list of all the purchases
+            for the currently authenticated user.
+            """
+            logger.debug('Something went wrong!')
+
+            id = self.request.query_params.get('pk', None)
+            logger.debug('Something went wrong!')
+            logger.debug(id)
+            return Groups.objects.filter(pk=id)

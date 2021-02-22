@@ -22,13 +22,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'groups']
 
 
-class GroupsSerializer(serializers.HyperlinkedModelSerializer):
+class GroupsSerializer(serializers.ModelSerializer):
     country_name = serializers.CharField(source='country.name')
-    sports_name = serializers.CharField(source='sport.name')
 # Add users
     class Meta:
         model = GroupAuth
-        fields = ['url', 'name', 'country_name', 'sports_name']
+        fields = ['name', 'country_name','description']
 
 
 class SportSerializer(serializers.ModelSerializer):
@@ -57,7 +56,7 @@ class EventSerializer(serializers.ModelSerializer):
 # Add users
     class Meta:
         model = Event
-        fields = ['name', 'users', 'description', 'country','country_name','city_name','sports_name', 'city', 'created_at', 'updated_at', 'sport', 'datetime', 'long', 'lat', 'difficulty']
+        fields = ['name', 'users', 'description', 'country','country_name','city_name','sports_name', 'city', 'created_at', 'updated_at', 'sport', 'datetime', 'long', 'lat', 'difficulty', 'private']
 
 
 class CommentsSerializer(serializers.ModelSerializer):

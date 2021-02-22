@@ -63,6 +63,11 @@ class User(models.Model):
         return self.username
 
 
+# Do we need a plugin model or can we serialize it without?
+#class UserInGroups(models.Model):
+ #   username = models.ForeignKey(User)
+ #   groups = models.ManyToManyField('Groups')
+
 class Event(models.Model):
     name = models.CharField(max_length=50)
     users = models.ManyToManyField('User')
@@ -76,6 +81,7 @@ class Event(models.Model):
     long = models.DecimalField(max_digits=12, decimal_places=7)
     lat = models.DecimalField(max_digits=12, decimal_places=7)
     difficulty = models.CharField(max_length=100)
+    private = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -111,6 +117,7 @@ class Group(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     users = models.ManyToManyField('User')
+    private = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
