@@ -51,7 +51,7 @@ Using Jenkins for build
 
 ## Heroku
 Building and deployed with Heroku,
-https://sport-social.herokuapp.com/
+https://api.sportsocial.is
 
 For updating live database 
 heroku run python manage.py migrate
