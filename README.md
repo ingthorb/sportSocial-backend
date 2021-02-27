@@ -67,7 +67,7 @@ For updating live database
 heroku run python manage.py migrate
 
 ## Staging Environment
-https://staging.sportsocial.is
+https://staging-api.sportsocial.is
 
 ## Production Environment
 http://api.sportsocial.is
