@@ -52,9 +52,7 @@ For some initial data you can run setup_database.sh
 Using Jenkins for build
 
 ## Heroku
-Building and deployed with Heroku,
-api.sportsocial.is
-
+Building and deployed with Heroku.
 For updating live database 
 heroku run python manage.py migrate
 
@@ -67,3 +65,9 @@ https://sport-social.herokuapp.com/
 
 For updating live database 
 heroku run python manage.py migrate
+
+## Staging Environment
+https://sportsocial-staging.herokuapp.com/
+
+## Production Environment
+http://api.sportsocial.is
