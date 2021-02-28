@@ -67,7 +67,9 @@ For updating live database
 heroku run python manage.py migrate
 
 ## Staging Environment
+Everything that is pushed to branch develop will be deployed to the staging environment.
 https://staging-api.sportsocial.is
 
 ## Production Environment
+After testing and veryfing it works on the staging environment then there must be a pull request from develop to master branch. After the pull request is accepted it will be deployed to production.
 http://api.sportsocial.is
