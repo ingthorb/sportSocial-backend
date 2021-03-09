@@ -5,6 +5,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class SportList(generics.ListCreateAPIView):
     """
         ---
@@ -169,7 +170,7 @@ class GroupList(generics.ListCreateAPIView):
           Create a new group
     """
     queryset = Groups.objects.all()
-    serializer_class = GroupDetailsSerializer
+    serializer_class = GroupSerializer
 
 
 class GroupsDetails(generics.RetrieveUpdateDestroyAPIView):
@@ -185,5 +186,4 @@ class GroupsDetails(generics.RetrieveUpdateDestroyAPIView):
             Delete a specific group
     """
     queryset = Groups.objects.all()
-    serializer_class = GroupSerializer
-
+    serializer_class = GroupDetailsSerializer
