@@ -9,7 +9,7 @@ class UsersSerializer(serializers.ModelSerializer):
         fields = ['username', 'email', 'first_name', 'last_name', 'created_at', 'updated_at', 'description', 'age', 'country']
 
 
-class GroupSerializer(serializers.ModelSerializer):
+class GroupDetailsSerializer(serializers.ModelSerializer):
     country_name = serializers.CharField(source='country.name')
     class Meta:
         model = Group
@@ -22,7 +22,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'groups']
 
 
-class GroupsSerializer(serializers.ModelSerializer):
+class GroupSerializer(serializers.ModelSerializer):
     country_name = serializers.CharField(source='country.name')
     class Meta:
         model = Group
@@ -30,6 +30,11 @@ class GroupsSerializer(serializers.ModelSerializer):
 
 
 class SportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sport
+        fields = ['name', 'description']
+
+class SportDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sport
         fields = ['name', 'description']
@@ -52,10 +57,21 @@ class EventSerializer(serializers.ModelSerializer):
     country_name = serializers.CharField(source='country.name')
     city_name = serializers.CharField(source='city.name')
     sports_name = serializers.CharField(source='sport.name')
-# Add users
     class Meta:
         model = Event
-        fields = ['name', 'users', 'description', 'country','country_name','city_name','sports_name', 'city', 'created_at', 'updated_at', 'sport', 'datetime', 'long', 'lat', 'difficulty', 'private']
+        fields = ['name', 'description', 'country', 'country_name', 'city_name',
+                  'sports_name',  'datetime', 'difficulty', 'private']
+
+
+# Add event Users
+class EventDetailSerializer(serializers.ModelSerializer):
+    country_name = serializers.CharField(source='country.name')
+    city_name = serializers.CharField(source='city.name')
+    sports_name = serializers.CharField(source='sport.name')
+    class Meta:
+        model = Event
+        fields = ['name', 'users', 'description', 'country', 'country_name', 'city_name', 'sports_name',
+                  'city', 'created_at', 'updated_at', 'sport', 'datetime', 'long', 'lat', 'difficulty', 'private']
 
 
 class CommentsSerializer(serializers.ModelSerializer):

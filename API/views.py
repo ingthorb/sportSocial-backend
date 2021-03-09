@@ -1,5 +1,5 @@
 from API.models import Sport, Event, Comments, Group as Groups, User as Users, City, Country
-from API.serializers import SportSerializer, EventSerializer, CommentsSerializer, UsersSerializer, GroupSerializer,GroupsSerializer, CitySerializer, CountrySerializer
+from API.serializers import SportSerializer, EventSerializer, SportDetailSerializer, CommentsSerializer, UsersSerializer, GroupSerializer, GroupDetailsSerializer, CitySerializer, CountrySerializer, EventDetailSerializer
 from rest_framework import generics
 import logging
 
@@ -10,27 +10,14 @@ class SportList(generics.ListCreateAPIView):
         ---
         get:
             Get list of sports
-        post:
-            Create a new sport
     """
     queryset = Sport.objects.all()
     serializer_class = SportSerializer
 
 
 class SportDetail(generics.RetrieveUpdateDestroyAPIView):
-    """
-        ---
-        get:
-            Get detailed sport
-        put:
-            Edit a specific sport
-        patch:
-            Patch a specific sport
-        delete:
-            Delete a specific sport
-    """
     queryset = Sport.objects.all()
-    serializer_class = SportSerializer
+    serializer_class = SportDetailSerializer
 
 
 class EventList(generics.ListCreateAPIView):
@@ -58,7 +45,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
             Delete a specific event
     """
     queryset = Event.objects.all()
-    serializer_class = EventSerializer
+    serializer_class = EventDetailSerializer
 
 
 class CommentList(generics.ListCreateAPIView):
@@ -182,11 +169,10 @@ class GroupList(generics.ListCreateAPIView):
           Create a new group
     """
     queryset = Groups.objects.all()
-    serializer_class = GroupsSerializer
+    serializer_class = GroupDetailsSerializer
 
 
 class GroupsDetails(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = GroupSerializer
     """
         ---
         get:
@@ -198,14 +184,6 @@ class GroupsDetails(generics.RetrieveUpdateDestroyAPIView):
         delete:
             Delete a specific group
     """
-    def get_queryset(self):
-            """
-            This view should return a list of all the purchases
-            for the currently authenticated user.
-            """
-            logger.debug('Something went wrong!')
+    queryset = Groups.objects.all()
+    serializer_class = GroupSerializer
 
-            id = self.request.query_params.get('pk', None)
-            logger.debug('Something went wrong!')
-            logger.debug(id)
-            return Groups.objects.filter(pk=id)

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.shortcuts import redirect
-from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from API import views
 
 urlpatterns = [
@@ -32,8 +32,9 @@ urlpatterns = [
     path('countries/', views.CountryList.as_view()),
     path('events/<int:pk>', views.EventDetail.as_view()),
     path('comments/<int:pk>', views.CommentDetail.as_view()),
-    path('sports/<int:id>', views.SportDetail.as_view()),
+    path('sports/<int:pk>', views.SportDetail.as_view()),
     path('cities/<int:pk>', views.CityDetails.as_view()),
+    path('groups/<int:pk>', views.GroupsDetails.as_view()),
     path('countries/<int:pk>', views.CountryDetail.as_view()),
     path('users/', views.UserList.as_view())
 ]
