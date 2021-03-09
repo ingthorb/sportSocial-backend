@@ -56,6 +56,8 @@ Building and deployed with Heroku.
 For updating live database 
 heroku run python manage.py migrate
 
+## Linting
+This project uses pylint
 
 ## For Windows Users
 
