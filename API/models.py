@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Country(models.Model):
     name = models.CharField(max_length=50, unique=True)
 
@@ -53,7 +54,7 @@ class User(models.Model):
     age = models.IntegerField()
 
     def __str__(self):
-        return self.username
+        return '%s %s' % (self.first_name, self.last_name)
 
     class Meta:
         ordering = ['created_at']
@@ -62,11 +63,6 @@ class User(models.Model):
     def __unicode__(self):
         return self.username
 
-
-# Do we need a plugin model or can we serialize it without?
-#class UserInGroups(models.Model):
- #   username = models.ForeignKey(User)
- #   groups = models.ManyToManyField('Groups')
 
 class Event(models.Model):
     name = models.CharField(max_length=50)
@@ -101,7 +97,7 @@ class Comments(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.event
+        return '%s: %s' % (self.user, self.text)
 
     class Meta:
         ordering = ['created_at']

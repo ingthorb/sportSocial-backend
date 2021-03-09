@@ -6,11 +6,14 @@ from rest_framework import serializers
 class UsersSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'created_at', 'updated_at', 'description', 'age', 'country']
+        fields = ['username', 'email', 'first_name', 'last_name', 'created_at', 'updated_at',
+                  'description', 'age', 'country']
 
 
-class GroupSerializer(serializers.ModelSerializer):
+class GroupDetailsSerializer(serializers.ModelSerializer):
     country_name = serializers.CharField(source='country.name')
+    users = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = Group
         fields = ['name', 'description', 'country', 'created_at', 'updated_at', 'users', 'country_name']
@@ -22,14 +25,26 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'groups']
 
 
-class GroupsSerializer(serializers.ModelSerializer):
+class GroupSerializer(serializers.ModelSerializer):
     country_name = serializers.CharField(source='country.name')
+    number_of_users = serializers.SerializerMethodField()
+
     class Meta:
         model = Group
-        fields = ['name', 'country_name','description']
+        fields = ['name', 'country_name', 'description', 'number_of_users']
+
+    @staticmethod
+    def get_number_of_users(obj):
+        return obj.users.count()
 
 
 class SportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sport
+        fields = ['name', 'description']
+
+
+class SportDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sport
         fields = ['name', 'description']
@@ -43,6 +58,7 @@ class CountrySerializer(serializers.ModelSerializer):
 
 class CitySerializer(serializers.ModelSerializer):
     country_name = serializers.CharField(source='country.name')
+
     class Meta:
         model = City
         fields = ['name', 'country', 'country_name']
@@ -52,10 +68,28 @@ class EventSerializer(serializers.ModelSerializer):
     country_name = serializers.CharField(source='country.name')
     city_name = serializers.CharField(source='city.name')
     sports_name = serializers.CharField(source='sport.name')
-# Add users
+    number_of_users = serializers.SerializerMethodField()
+
     class Meta:
         model = Event
-        fields = ['name', 'users', 'description', 'country','country_name','city_name','sports_name', 'city', 'created_at', 'updated_at', 'sport', 'datetime', 'long', 'lat', 'difficulty', 'private']
+        fields = ['name', 'description', 'country', 'country_name', 'city_name',
+                  'sports_name', 'datetime', 'difficulty', 'private', 'number_of_users']
+
+    @staticmethod
+    def get_number_of_users(obj):
+        return obj.users.count()
+
+
+class EventDetailSerializer(serializers.ModelSerializer):
+    country_name = serializers.CharField(source='country.name')
+    city_name = serializers.CharField(source='city.name')
+    sports_name = serializers.CharField(source='sport.name')
+    users = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Event
+        fields = ['name', 'users', 'description', 'country', 'country_name', 'city_name', 'sports_name',
+                  'city', 'created_at', 'updated_at', 'sport', 'datetime', 'long', 'lat', 'difficulty', 'private']
 
 
 class CommentsSerializer(serializers.ModelSerializer):
