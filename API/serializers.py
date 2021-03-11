@@ -6,7 +6,7 @@ from rest_framework import serializers
 class UsersSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'created_at', 'updated_at',
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'created_at', 'updated_at',
                   'description', 'age', 'country']
 
 
@@ -16,13 +16,13 @@ class GroupDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Group
-        fields = ['name', 'description', 'country', 'created_at', 'updated_at', 'users', 'country_name']
+        fields = ['id', 'name', 'description', 'country', 'created_at', 'updated_at', 'users', 'country_name']
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserAuth
-        fields = ['url', 'username', 'email', 'groups']
+        fields = ['id', 'url', 'username', 'email', 'groups']
 
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -31,7 +31,7 @@ class GroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Group
-        fields = ['name', 'country_name', 'description', 'number_of_users']
+        fields = ['id', 'name', 'country_name', 'description', 'number_of_users']
 
     @staticmethod
     def get_number_of_users(obj):
@@ -41,19 +41,19 @@ class GroupSerializer(serializers.ModelSerializer):
 class SportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sport
-        fields = ['name', 'description']
+        fields = ['id', 'name', 'description']
 
 
 class SportDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sport
-        fields = ['name', 'description']
+        fields = ['id', 'name', 'description']
 
 
 class CountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Country
-        fields = ['name']
+        fields = ['id', 'name']
 
 
 class CitySerializer(serializers.ModelSerializer):
@@ -61,7 +61,7 @@ class CitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
-        fields = ['name', 'country', 'country_name']
+        fields = ['id', 'name', 'country', 'country_name']
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -72,7 +72,7 @@ class EventSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ['name', 'description', 'country', 'country_name', 'city_name',
+        fields = ['id', 'name', 'description', 'country', 'country_name', 'city_name',
                   'sports_name', 'datetime', 'difficulty', 'private', 'number_of_users']
 
     @staticmethod
@@ -88,11 +88,11 @@ class EventDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ['name', 'users', 'description', 'country', 'country_name', 'city_name', 'sports_name',
+        fields = ['id', 'name', 'users', 'description', 'country', 'country_name', 'city_name', 'sports_name',
                   'city', 'created_at', 'updated_at', 'sport', 'datetime', 'long', 'lat', 'difficulty', 'private']
 
 
 class CommentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comments
-        fields = ['user', 'text', 'event', 'created_at', 'updated_at']
+        fields = ['id', 'user', 'text', 'event', 'created_at', 'updated_at']
