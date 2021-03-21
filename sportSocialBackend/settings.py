@@ -28,7 +28,7 @@ DEBUG = True
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8080",
-    "http://staging.sportsocial.is"
+    "http://staging.sportsocial.is",
     "http://sportsocial.is",
     "http://127.0.0.1:3000"
 ]
