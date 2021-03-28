@@ -42,6 +42,7 @@ FIXTURE_DIRS = ["./API/fixtures/"]
 # Application definition
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'PAGE_SIZE': 10,
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
 }
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'API.apps.ApiConfig',
     'drf_spectacular',
+    'django_filters',
     'corsheaders'
 ]
 

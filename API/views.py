@@ -1,6 +1,7 @@
 from API.models import Sport, Event, Comments, Group as Groups, User as Users, City, Country
 from API.serializers import SportSerializer, EventSerializer, SportDetailSerializer, CommentsSerializer, UsersSerializer, GroupSerializer, GroupDetailsSerializer, CitySerializer, CountrySerializer, EventDetailSerializer
 from rest_framework import generics
+from django_filters.rest_framework import DjangoFilterBackend
 import logging
 
 logger = logging.getLogger(__name__)
@@ -31,6 +32,8 @@ class EventList(generics.ListCreateAPIView):
     """
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['country', 'sport', 'datetime']
 
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -115,6 +118,7 @@ class CityList(generics.ListCreateAPIView):
     """
     queryset = City.objects.all()
     serializer_class = CitySerializer
+    filter_backends = [DjangoFilterBackend]
 
 
 class CityDetails(generics.RetrieveUpdateDestroyAPIView):
@@ -171,6 +175,8 @@ class GroupList(generics.ListCreateAPIView):
     """
     queryset = Groups.objects.all()
     serializer_class = GroupSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['country', 'private']
 
 
 class GroupsDetails(generics.RetrieveUpdateDestroyAPIView):
