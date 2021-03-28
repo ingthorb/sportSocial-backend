@@ -16,6 +16,7 @@ whitenoise = "*"
 psycopg2-binary = "*"
 psycopg2 = "*"
 drf-spectacular = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.7.7"
