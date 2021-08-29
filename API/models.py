@@ -1,5 +1,5 @@
 from django.db import models
-
+from recurrence.fields import RecurrenceField
 
 class Country(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -64,6 +64,7 @@ class User(models.Model):
         return self.username
 
 
+# Add recurring field to offer users how often they would want it to happen
 class Event(models.Model):
     name = models.CharField(max_length=50)
     users = models.ManyToManyField('User')
@@ -74,6 +75,7 @@ class Event(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     sport = models.ForeignKey(Sport, on_delete=models.CASCADE)
     datetime = models.DateTimeField()
+    recurrences = RecurrenceField(default='')
     long = models.DecimalField(max_digits=12, decimal_places=7)
     lat = models.DecimalField(max_digits=12, decimal_places=7)
     difficulty = models.CharField(max_length=100)

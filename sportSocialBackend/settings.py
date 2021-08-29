@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'recurrence',
     'API.apps.ApiConfig',
     'drf_spectacular',
     'django_filters',
